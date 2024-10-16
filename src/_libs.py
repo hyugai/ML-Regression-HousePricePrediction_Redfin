@@ -1,6 +1,7 @@
 # data structures
 import numpy as np
 import pandas as pd
+from tabulate import tabulate
 
 # visualization
 import matplotlib.pyplot as plt

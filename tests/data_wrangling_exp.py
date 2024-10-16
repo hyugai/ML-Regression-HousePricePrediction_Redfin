@@ -9,3 +9,9 @@ from _libs import *
 from _usr_libs import *
 
 # exp
+csv_files_names = ['api', 'html']
+csv_path = cwd + "/resource/data/api.csv"
+target_path = cwd + "/resource/data/cleaned_api.csv"
+
+data_processor = DataPreprocessor(csv_path, target_path)
+data_processor.generate_overviews()
