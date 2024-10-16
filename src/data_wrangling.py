@@ -16,3 +16,6 @@ class DataPreprocessor():
             \nTail:\n{tabulate(self.df.tail(), headers='keys', tablefmt='psql')}\
             \nInfo:")
         print(self.df.info())
+
+    def general_processing(self):
+        pass
