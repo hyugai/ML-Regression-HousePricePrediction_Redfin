@@ -10,4 +10,4 @@ from _usr_libs import *
 
 # exp
 df_api = pd.read_csv('resource/data/api.csv', dtype={'sold_date': 'object'})
-df.pipe(get_data_summary, "Overviews of raws data from API", cwd + "/resource/output/logs/dw.txt")
+df_api.pipe(get_data_summary, "Overviews of raws data from API", cwd + "/resource/output/logs/dw.txt")
