@@ -15,9 +15,14 @@ from sklearn.pipeline import Pipeline
 
 # preporcessing
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler, PowerTransformer, QuantileTransformer
+from sklearn.preprocessing import StandardScaler, PowerTransformer, QuantileTransformer, MinMaxScaler
 from sklearn.preprocessing import OneHotEncoder, TargetEncoder
 from category_encoders import CatBoostEncoder
+
+# imputation
+from sklearn.impute import SimpleImputer, KNNImputer
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
 
 # metrics
 from sklearn.metrics import root_mean_squared_error, r2_score
@@ -36,9 +41,15 @@ from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
-
-# catboost
 from catboost import CatBoostRegressor
+
+# stacking
+from sklearn.ensemble import StackingRegressor
+
+# clustering
+from gower import gower_matrix
+from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import dendrogram, linkage
 
 # others
 import re, io, os, sys
