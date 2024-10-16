@@ -49,7 +49,7 @@ from sklearn.ensemble import StackingRegressor
 # clustering
 from gower import gower_matrix
 from sklearn.cluster import AgglomerativeClustering
-from scipy.cluster.hierarchy import dendrogram, linkage
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 
 # others
 import re, io, os, sys
