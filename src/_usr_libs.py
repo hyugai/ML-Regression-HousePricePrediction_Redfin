@@ -1,1 +1,1 @@
-from data_wrangling import DataPreprocessor
+from data_wrangling import get_data_summary
