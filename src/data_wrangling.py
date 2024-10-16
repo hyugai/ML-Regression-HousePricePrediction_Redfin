@@ -6,7 +6,7 @@ def get_data_summary(
         df: pd.DataFrame,
         title: str, summary_file_path: str
 ) -> pd.DataFrame:
-    with open(summary_file_path, 'w+') as f:
+    with open(summary_file_path, 'a+') as f:
         buffer = io.StringIO()
         df.info(buf=buffer)
 

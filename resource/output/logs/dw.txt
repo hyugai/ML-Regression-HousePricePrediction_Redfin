@@ -58,24 +58,65 @@ memory usage: 7.4+ MB
 
 Preprocessing
 Columns with null strings: None
-Columns with only 1 value: favorite, interested
 Missing values per column:            
-+----------------------------+---------+
-|                            |   count |
-|----------------------------+---------|
-| address                    |       1 |
-| sold_date                  |   35989 |
-| city                       |      12 |
-| zip_or_postal_code         |      20 |
-| price                      |       3 |
-| beds                       |    1617 |
-| baths                      |    1804 |
-| location                   |     404 |
-| square_feet                |    2789 |
-| lot_size                   |    7274 |
-| year_built                 |    2392 |
-| dollars_per_square_feet    |    2507 |
-| hoa_per_month              |   19939 |
-| next_open_house_start_time |   29560 |
-| next_open_house_end_time   |   29560 |
-+----------------------------+---------+
++-------------------------+---------+
+|                         |   count |
+|-------------------------+---------|
+| city                    |      12 |
+| zip_or_postal_code      |      20 |
+| price                   |       3 |
+| beds                    |    1612 |
+| baths                   |    1801 |
+| location                |     402 |
+| square_feet             |    2786 |
+| lot_size                |    7242 |
+| year_built              |    2383 |
+| dollars_per_square_feet |    2504 |
+| hoa_per_month           |   19926 |
++-------------------------+---------+
+Overviews of cleaned data from API            
+Shape: (35929, 15)            
+Head:
++----+---------------------------+-------------+---------------------+----------------------+---------+--------+---------+------------------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------+
+|    | property_type             | city        | state_or_province   |   zip_or_postal_code |   price |   beds |   baths | location               |   square_feet |   lot_size |   year_built |   dollars_per_square_feet |   hoa_per_month |   latitude |   longitude |
+|----+---------------------------+-------------+---------------------+----------------------+---------+--------+---------+------------------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------|
+|  0 | Townhouse                 | Alexandria  | VA                  |                22305 |  784500 |      3 |     3.5 | BEVERLEY HILLS CREST   |          1738 |       1725 |         1987 |                       451 |             100 |    38.8408 |    -77.0698 |
+|  1 | Single Family Residential | Anchorage   | AK                  |                99515 |  818000 |      5 |     3   | Anchorage Municipality |          3398 |      28971 |         2006 |                       241 |              17 |    61.124  |   -149.935  |
+|  2 | Single Family Residential | Anchorage   | AK                  |                99516 |  515000 |      3 |     2   | Anchorage Municipality |          1944 |      43500 |         1972 |                       265 |             nan |    61.1071 |   -149.802  |
+|  3 | Townhouse                 | Ashburn     | VA                  |                20147 |  658960 |      3 |     2.5 | ASHBURN VILLAGE        |          2177 |       1742 |         1989 |                       303 |             145 |    39.049  |    -77.4773 |
+|  4 | Single Family Residential | Bakersfield | CA                  |                93306 |  410950 |      4 |     2   | Bakersfield            |          2172 |      11326 |         1965 |                       189 |             nan |    35.41   |   -118.956  |
++----+---------------------------+-------------+---------------------+----------------------+---------+--------+---------+------------------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------+            
+Tail:
++-------+-------------------------+-----------+---------------------+----------------------+----------------+--------+---------+------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------+
+|       | property_type           | city      | state_or_province   |   zip_or_postal_code |          price |   beds |   baths | location   |   square_feet |   lot_size |   year_built |   dollars_per_square_feet |   hoa_per_month |   latitude |   longitude |
+|-------+-------------------------+-----------+---------------------+----------------------+----------------+--------+---------+------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------|
+| 35986 | Multi-Family (5+ Unit)  | Worcester | MA                  |                01603 |      1.499e+06 |     12 |     5.5 | Worcester  |          4817 |      13969 |         1988 |                       311 |             nan |    42.2444 |    -71.8295 |
+| 35987 | Condo/Co-op             | Worcester | MA                  |                01604 | 599000         |      4 |     3   | Worcester  |          3393 |        nan |         1988 |                       177 |            2740 |    42.2717 |    -71.7583 |
+| 35988 | Vacant Land             | Worcester | MA                  |                01604 |  55000         |    nan |   nan   | Worcester  |           nan |      15368 |          nan |                       nan |             nan |    42.2828 |    -71.7629 |
+| 35989 | Vacant Land             | Worcester | MA                  |                01610 |  99900         |    nan |   nan   | Worcester  |           nan |      10755 |          nan |                       nan |             nan |    42.2416 |    -71.8018 |
+| 35990 | Multi-Family (2-4 Unit) | Worcester | MA                  |                01606 |      1.5e+06   |     12 |     6   | Worcester  |          6306 |       9906 |         1898 |                       238 |             nan |    42.3037 |    -71.795  |
++-------+-------------------------+-----------+---------------------+----------------------+----------------+--------+---------+------------+---------------+------------+--------------+---------------------------+-----------------+------------+-------------+            
+Info:
+<class 'pandas.core.frame.DataFrame'>
+Index: 35929 entries, 0 to 35990
+Data columns (total 15 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   property_type            35929 non-null  object 
+ 1   city                     35917 non-null  object 
+ 2   state_or_province        35929 non-null  object 
+ 3   zip_or_postal_code       35909 non-null  object 
+ 4   price                    35926 non-null  float64
+ 5   beds                     34317 non-null  float64
+ 6   baths                    34128 non-null  float64
+ 7   location                 35527 non-null  object 
+ 8   square_feet              33143 non-null  float64
+ 9   lot_size                 28687 non-null  float64
+ 10  year_built               33546 non-null  float64
+ 11  dollars_per_square_feet  33425 non-null  float64
+ 12  hoa_per_month            16003 non-null  float64
+ 13  latitude                 35929 non-null  float64
+ 14  longitude                35929 non-null  float64
+dtypes: float64(10), object(5)
+memory usage: 4.4+ MB
+
