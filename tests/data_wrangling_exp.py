@@ -21,3 +21,8 @@ df_api_cleaned = df_api.pipe(get_data_summary, "Overviews of raws data from API"
     .pipe(preprocess_category, summary_file_path)\
         .pipe(preprocess, summary_file_path, columns_to_drop)\
             .pipe(get_data_summary, "Overviews of cleaned data from API", summary_file_path)
+
+df_html = pd.read_csv('resource/data/html.csv')
+columns_to_drop = ['streetLine', 'countryCode']
+df_html_cleaned = df_html.pipe(get_data_summary, "Overviews of raws data from HTML", summary_file_path)\
+    .pipe(preprocess_category, summary_file_path)

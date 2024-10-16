@@ -120,3 +120,51 @@ Data columns (total 15 columns):
 dtypes: float64(10), object(5)
 memory usage: 4.4+ MB
 
+Overviews of raws data from HTML            
+Shape: (6922, 15)            
+Head:
++----+--------------------------+---------+-------+--------+----------------+-----------+--------+---------+---------+---------+-------+--------------+---------------+-------------+-----------------------+
+|    | streetLine               |   price |   hoa |   sqFt |   pricePerSqFt |   lotSize |   beds |   baths | city    | state   |   zip |   postalCode | countryCode   |   yearBuilt | propertyType          |
+|----+--------------------------+---------+-------+--------+----------------+-----------+--------+---------+---------+---------+-------+--------------+---------------+-------------+-----------------------|
+|  0 | 2081 Beecher Rd SW       |  500000 |   nan |   1617 |            309 |     14139 |      3 |     3   | Atlanta | GA      | 30311 |        30311 | US            |        1960 | SingleFamilyResidence |
+|  1 | 657 Woods Dr NW          |  325000 |   nan |   1166 |            279 |     12000 |      3 |     2   | Atlanta | GA      | 30318 |        30318 | US            |        1950 | SingleFamilyResidence |
+|  2 | 951 Glenwood Ave SE #303 |  475000 |   267 |   1212 |            392 |      1210 |      2 |     1.5 | Atlanta | GA      | 30316 |        30316 | US            |        2001 | SingleFamilyResidence |
+|  3 | 2041 North Ave NW        |  279900 |   nan |    968 |            289 |     12689 |      2 |     1   | Atlanta | GA      | 30318 |        30318 | US            |        1950 | SingleFamilyResidence |
+|  4 | 2037 North Ave NW        |  329900 |   nan |   1208 |            273 |     13377 |      3 |     2   | Atlanta | GA      | 30318 |        30318 | US            |        1954 | SingleFamilyResidence |
++----+--------------------------+---------+-------+--------+----------------+-----------+--------+---------+---------+---------+-------+--------------+---------------+-------------+-----------------------+            
+Tail:
++------+----------------------+---------+-------+--------+----------------+-----------+--------+---------+------------+---------+-------+--------------+---------------+-------------+----------------+
+|      | streetLine           |   price |   hoa |   sqFt |   pricePerSqFt |   lotSize |   beds |   baths | city       | state   |   zip |   postalCode | countryCode   |   yearBuilt | propertyType   |
+|------+----------------------+---------+-------+--------+----------------+-----------+--------+---------+------------+---------+-------+--------------+---------------+-------------+----------------|
+| 6917 | 5501 Old Capitol Trl |  275000 |   nan |    nan |            nan |    136778 |    nan |     nan | Wilmington | DE      | 19808 |        19808 | US            |         nan | Accommodation  |
+| 6918 | 3910 Centerville Rd  |  750000 |   nan |    nan |            nan |    100188 |    nan |     nan | Wilmington | DE      | 19807 |        19807 | US            |         nan | Accommodation  |
+| 6919 | 3 Krygier Ln         |  895000 |   nan |    nan |            nan |     87120 |    nan |     nan | Wilmington | DE      | 19807 |        19807 | US            |         nan | Accommodation  |
+| 6920 | 5 Krygier Ln         |  795000 |   nan |    nan |            nan |     87120 |    nan |     nan | Wilmington | DE      | 19807 |        19807 | US            |         nan | Accommodation  |
+| 6921 | 7 Krygier Ln         |  695000 |   nan |    nan |            nan |    101495 |    nan |     nan | Wilmington | DE      | 19807 |        19807 | US            |         nan | Accommodation  |
++------+----------------------+---------+-------+--------+----------------+-----------+--------+---------+------------+---------+-------+--------------+---------------+-------------+----------------+            
+Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 6922 entries, 0 to 6921
+Data columns (total 15 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   streetLine    6922 non-null   object 
+ 1   price         6921 non-null   float64
+ 2   hoa           2888 non-null   float64
+ 3   sqFt          6572 non-null   float64
+ 4   pricePerSqFt  6572 non-null   float64
+ 5   lotSize       5716 non-null   float64
+ 6   beds          6641 non-null   float64
+ 7   baths         6591 non-null   float64
+ 8   city          6921 non-null   object 
+ 9   state         6922 non-null   object 
+ 10  zip           6922 non-null   object 
+ 11  postalCode    6922 non-null   object 
+ 12  countryCode   6922 non-null   object 
+ 13  yearBuilt     6399 non-null   float64
+ 14  propertyType  6922 non-null   object 
+dtypes: float64(8), object(7)
+memory usage: 811.3+ KB
+
+Preprocessing
+Columns with null strings: None
