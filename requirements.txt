@@ -4,6 +4,9 @@ seaborn
 squarify
 yellowbrick
 scikit-learn
+category_encoders
 statsmodels
+catboost
+lightgbm
+xgboost
 optuna
-

@@ -10,8 +10,10 @@ import squarify
 import yellowbrick
 
 # machine learning
-# preporcessing
+# pipeline
 from sklearn.pipeline import Pipeline
+
+# preporcessing
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, PowerTransformer, QuantileTransformer
 from sklearn.preprocessing import OneHotEncoder, TargetEncoder
@@ -25,9 +27,9 @@ from sklearn.metrics import root_mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
 
 # bagging
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
 
 # gradient boosting
