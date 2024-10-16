@@ -1,0 +1,9 @@
+pandas
+tabulate
+seaborn
+squarify
+yellowbrick
+scikit-learn
+statsmodels
+optuna
+
