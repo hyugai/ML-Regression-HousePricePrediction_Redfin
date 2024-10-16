@@ -10,4 +10,7 @@ from _usr_libs import *
 
 # exp
 df_api = pd.read_csv('resource/data/api.csv', dtype={'sold_date': 'object'})
-df_api.pipe(get_data_summary, "Overviews of raws data from API", cwd + "/resource/output/logs/dw.txt")
+summary_file_path = cwd + "/resource/output/logs/dw.txt"
+df_api_cleaned = df_api.pipe(get_data_summary, "Overviews of raws data from API", summary_file_path)\
+    .pipe(preprocess_category, summary_file_path)\
+        .pipe(preprocess, summary_file_path)

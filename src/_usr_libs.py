@@ -1,1 +1,1 @@
-from data_wrangling import get_data_summary
+from data_wrangling import get_data_summary, preprocess_category, preprocess

@@ -19,7 +19,10 @@ def get_data_summary(
     return df
 
 def preprocess_category(
-    df: pd.DataFrame) -> pd.DataFrame:
+    df: pd.DataFrame, 
+    summary_file_path: str) -> pd.DataFrame:
+    f = open(summary_file_path, 'a+')
+    print("Preprocessing", file=f)
     # stripping white spaces
     df.columns = [name.strip() for name in df.columns.tolist()]
 
@@ -30,10 +33,42 @@ def preprocess_category(
         .query("count != 0").index.tolist()
     if null_strings_columns:
         df[null_strings_columns] = df[null_strings_columns].map(lambda x: np.nan if x == '' else x)
-
+        print(f"Columns with null strings:\n{null_strings_columns}", file=f)
+    else:
+        print("Columns with null strings: None", file=f)
+    
+    f.close()
+    
+    return df
 
 def preprocess(
     df: pd.DataFrame, 
-    columns_to_drop: list[str]
-) -> pd.DataFrame:
-    pass
+    summary_file_path: str, columns_to_drop: list[str]=[]) -> pd.DataFrame:
+    f = open(summary_file_path, 'a+')
+
+    # drop irrelavant columns
+    if columns_to_drop:
+        df.drop(columns_to_drop, axis=1, inplace=True)
+
+    # single-value columns
+    single_value_columns = df.nunique().to_frame('nuique')\
+        .query("nuique == 1").index.tolist()
+    if single_value_columns:
+        df.drop(single_value_columns, axis=1, inplace=True)
+        print(f"Columns with only 1 value: {', '.join(single_value_columns)}", file=f)
+
+    # duplications
+    df.drop_duplicates(inplace=True)
+    
+    # missing values
+    missing_values_columns = df.isnull().sum(axis=0).to_frame('count')\
+        .query("count != 0")
+    if missing_values_columns.index.tolist():
+        print(f"Missing values per column:\
+            \n{tabulate(missing_values_columns, headers='keys', tablefmt='psql')}", file=f)
+    else:
+        print("Missing values: None", file=f)
+    
+    f.close()
+
+    return df

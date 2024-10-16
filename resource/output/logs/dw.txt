@@ -56,3 +56,26 @@ Data columns (total 27 columns):
 dtypes: float64(10), int64(1), object(16)
 memory usage: 7.4+ MB
 
+Preprocessing
+Columns with null strings: None
+Columns with only 1 value: favorite, interested
+Missing values per column:            
++----------------------------+---------+
+|                            |   count |
+|----------------------------+---------|
+| address                    |       1 |
+| sold_date                  |   35989 |
+| city                       |      12 |
+| zip_or_postal_code         |      20 |
+| price                      |       3 |
+| beds                       |    1617 |
+| baths                      |    1804 |
+| location                   |     404 |
+| square_feet                |    2789 |
+| lot_size                   |    7274 |
+| year_built                 |    2392 |
+| dollars_per_square_feet    |    2507 |
+| hoa_per_month              |   19939 |
+| next_open_house_start_time |   29560 |
+| next_open_house_end_time   |   29560 |
++----------------------------+---------+
