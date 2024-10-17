@@ -46,20 +46,15 @@ def preprocess(
     summary_file_path: str, columns_to_drop: list[str]=[]) -> pd.DataFrame:
     f = open(summary_file_path, 'a+')
 
+    # duplications
+    counts = df.duplicated(subset=['address']).sum(axis=0)
+    print(f"Total duplications: {counts}", file=f)
+    df.drop_duplicates(subset=['address'], inplace=True)
+    
     # drop irrelavant columns
     if columns_to_drop:
         df.drop(columns_to_drop, axis=1, inplace=True)
 
-    # single-value columns
-    single_value_columns = df.nunique().to_frame('nuique')\
-        .query("nuique == 1").index.tolist()
-    if single_value_columns:
-        df.drop(single_value_columns, axis=1, inplace=True)
-        print(f"Columns with only 1 value: {', '.join(single_value_columns)}", file=f)
-
-    # duplications
-    df.drop_duplicates(inplace=True)
-    
     # missing values
     missing_values_columns = df.isnull().sum(axis=0).to_frame('count')\
         .query("count != 0")
@@ -68,6 +63,13 @@ def preprocess(
             \n{tabulate(missing_values_columns, headers='keys', tablefmt='psql')}", file=f)
     else:
         print("Missing values: None", file=f)
+
+    # single-value columns
+    single_value_columns = df.nunique().to_frame('nuique')\
+        .query("nuique == 1").index.tolist()
+    if single_value_columns:
+        df.drop(single_value_columns, axis=1, inplace=True)
+        print(f"Columns with only 1 value: {', '.join(single_value_columns)}", file=f)
     
     f.close()
 
