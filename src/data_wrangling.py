@@ -70,6 +70,8 @@ def preprocess(
     if single_value_columns:
         df.drop(single_value_columns, axis=1, inplace=True)
         print(f"Columns with only 1 value: {', '.join(single_value_columns)}", file=f)
+    else:
+        print(f"Columns with only 1 values: None", file=f)
     
     f.close()
 
