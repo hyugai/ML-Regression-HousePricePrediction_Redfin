@@ -12,3 +12,10 @@ def summarize_statistics(
         print(f"{title}\
               \nNumeric features:\n{tabulate(num_stats, headers='keys', tablefmt='psql')}\
               \nCategorical features:\n{tabulate(cat_stats, headers='keys', tablefmt='psql')}", file=f)
+
+# plottings
+# histogram
+def plot_hist(df: pd.DataFrame,
+              column: str, ax) -> None:
+    g = sns.histplot(df[column], kde=True, ax=ax)
+    g.set_ylabel(None)

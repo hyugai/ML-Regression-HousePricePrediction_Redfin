@@ -13,5 +13,10 @@ csv_path = cwd + "/resource/data/cleaned.csv"
 summary_file_path = cwd + "/resource/output/logs/summary_statistics.txt"
 title = "Summarized Statistics"
 
+with open(summary_file_path, 'w') as f:
+    f.write('')
 df = pd.read_csv(csv_path)\
     .pipe(summarize_statistics, title, summary_file_path)
+
+# exp: plottings
+plottings = ['hist', 'box', 'qq']
