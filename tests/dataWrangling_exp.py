@@ -34,4 +34,6 @@ df_html_cleaned = df_html.rename(columns=renamed_columns)\
 
 both_cleaned_csv_path = cwd + "/resource/data/cleaned.csv"
 df_both_cleaned = pd.concat([df_api_cleaned, df_html_cleaned], join='inner', axis=0)\
-    .to_csv(both_cleaned_csv_path, index=False)
+    .pipe(get_data_summary, "Overviews of concatenated csv files", summary_file_path)\
+        .to_csv(both_cleaned_csv_path, index=False)
+
