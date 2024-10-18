@@ -24,4 +24,8 @@ num_cols = df.select_dtypes(np.number).columns\
 cat_cols = df.select_dtypes('object').columns\
     .to_numpy().reshape(2, 2)
 
+plots = ['hist', 'box', 'qq']
 figs, axes = dict(), dict()
+for plot_name in plots:
+    figs[plot_name], axes[plot_name] = plt.subplots(2, 5, sharex=False, sharey=False, 
+                                                    figsize=(20, 15))

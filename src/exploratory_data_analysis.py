@@ -20,12 +20,19 @@ def summarize_statistics(
 def plot_hist(df: pd.DataFrame,
               column: str, ax) -> None:
     log_scale_names = ['price']
-    mask = df[column].notnull()
     if column in log_scale_names:
-        g = sns.histplot(df[column][mask], bins=100, kde=True, log_scale=True, ax=ax)
+        g = sns.histplot(df[column], bins=100, kde=True, log_scale=True, ax=ax)
         g.axes.lines[0].set_color('red')
         g.set_ylabel(None)
     else:
-        g = sns.histplot(df[column][mask], bins=100, kde=True, ax=ax)
+        g = sns.histplot(df[column], bins=100, kde=True, ax=ax)
         g.axes.lines[0].set_color('red')
         g.set_ylabel(None)
+        
+def plot_box(df: pd.DataFrame, 
+             column: str, ax) -> None:
+    pass
+
+def plot_qq(df: pd.DataFrame, 
+            column: str, ax) -> None:
+    pass
