@@ -7,7 +7,6 @@ from tabulate2 import tabulate
 import matplotlib.pyplot as plt
 import seaborn as sns
 import squarify
-import yellowbrick
 
 # machine learning
 # pipeline
