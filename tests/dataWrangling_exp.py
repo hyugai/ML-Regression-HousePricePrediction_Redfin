@@ -33,8 +33,10 @@ df_html_cleaned = df_html.rename(columns=renamed_columns)\
                 .pipe(preprocess, summary_file_path, columns_to_drop)\
                     .pipe(get_data_summary, "Overviews of cleaned data from HTML", summary_file_path)
 
-both_cleaned_csv_path = cwd + "/resource/data/cleaned.csv"
-df_both_cleaned = pd.concat([df_api_cleaned, df_html_cleaned], join='inner', axis=0)\
-    .pipe(get_data_summary, "Overviews of concatenated csv files", summary_file_path)\
-        .to_csv(both_cleaned_csv_path, index=False)
+preprocessed_csv_path = cwd + "/resource/data/cleaned.csv"
+df_both_cleaned = pd.concat([df_api_cleaned, df_html_cleaned], join='inner', axis=0)
 
+df_both_cleaned['house_age'] = 2024 - df_both_cleaned['year_built']
+df_both_cleaned.drop('year_built', axis=1, inplace=True)
+df_both_cleaned.pipe(get_data_summary, "Overviews of preprocessed data", summary_file_path)\
+    .to_csv(preprocessed_csv_path, index=False)

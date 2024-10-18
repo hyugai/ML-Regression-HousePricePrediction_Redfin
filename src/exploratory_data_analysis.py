@@ -19,5 +19,9 @@ def summarize_statistics(
 # histogram
 def plot_hist(df: pd.DataFrame,
               column: str, ax) -> None:
-    g = sns.histplot(df[column], kde=True, ax=ax)
-    g.set_ylabel(None)
+    log_scale_names = ['price']
+    if column in log_scale_names:
+        g = sns.histplot(df[column], bins=20, kde=True, log_scale=True, ax=ax)
+        g.set_ylabel(None)
+    else:
+        g = sns.histplot(df[column], bins=20, kde=True, ax=ax)
