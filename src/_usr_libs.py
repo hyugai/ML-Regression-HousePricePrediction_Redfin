@@ -1,2 +1,2 @@
 from data_wrangling import get_data_summary, preprocess_category, preprocess
-from exploratory_data_analysis import summarize_statistics
+from exploratory_data_analysis import summarize_statistics, plot_hist

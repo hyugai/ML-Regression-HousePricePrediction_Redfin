@@ -4,7 +4,7 @@ from _libs import *
 # summary statistics
 def summarize_statistics(
         df: pd.DataFrame, 
-        title: str, summary_file_path: str) -> None:
+        title: str, summary_file_path: str) -> pd.DataFrame:
     num_stats = df.select_dtypes(np.number).describe([.01, .25, .5, .75, .99]).T
     cat_stats = df.select_dtypes('object').describe().T
 
@@ -12,6 +12,8 @@ def summarize_statistics(
         print(f"{title}\
               \nNumeric features:\n{tabulate(num_stats, headers='keys', tablefmt='psql')}\
               \nCategorical features:\n{tabulate(cat_stats, headers='keys', tablefmt='psql')}", file=f)
+    
+    return df
 
 # plottings
 # histogram
